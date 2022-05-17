@@ -7,10 +7,12 @@ import {
     Input
 } from 'reactstrap';
 import { Checkbox } from './Checkboxes'
+import { Checkboxestwo } from './LightCheckbox';
 
 export const Accordian = (props) => {
+    //sets up state for which accordian is open and a default of the target id pass in via props 
     const [isOpen, setIsOpen] = useState(props.targetId);
-
+    // This allows for if an accordian header is clicked on for the accordian to either open or close
     const toggle = (value) => {
         if (value === isOpen) {
             setIsOpen("0")
@@ -19,9 +21,17 @@ export const Accordian = (props) => {
             setIsOpen(value);
         }
     }
-
-    const lightLanguage = ['Light', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
+    // labels and ids for checkboxes eventually will move to its own file
+    const lightLanguage = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
     const heavyLanguage = ['Heavy', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
+
+    const [isLightChecked, setIsLightChecked] = useState(false);
+
+
+
+    // function Checkboxselect() {
+    //     const [checked, setChecked] = useState(true);
+    // }
     return (
         <div>
             <Accordion open={isOpen} toggle={function noRefCheck() { }}>
@@ -35,10 +45,11 @@ export const Accordian = (props) => {
                 </AccordionItem>
                 <AccordionItem toggle="2">
                     <AccordionHeader onClick={() => toggle('2')} targetId="2">
-                        <Input type="checkbox" /> &nbsp; Light Language
+                         Light Language
                     </AccordionHeader>
                     <AccordionBody accordionId="2">
-                        <Checkbox label={lightLanguage} />
+                        {/* <Checkbox checked={isLightChecked} label={lightLanguage} /> */}
+                        <Checkboxestwo checked={isLightChecked} label={lightLanguage}/>
                     </AccordionBody>
                 </AccordionItem>
                 <AccordionItem>
@@ -50,6 +61,7 @@ export const Accordian = (props) => {
                     </AccordionBody>
                 </AccordionItem>
             </Accordion>
+
         </div>
     )
 }

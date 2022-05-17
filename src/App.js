@@ -6,12 +6,14 @@ import { Message } from './components/Message'
 import { Header } from './components/Header'
 import { Example } from './components/Headertwo'
 import { Accordian } from './components/FilterAccordian'
+import { MovieTable } from './components/TableComponent'
 
 function App() {
   return (
     <div className="App">
       <Example />
-      <Accordian targetId="0"/>
+      <Accordian targetId="0" />
+      <MovieTable />
       {/* <Header /> */}
       {/* <Greet name='Bruce' heroName='Batman'/>
       <Greet name='Clark' heroName='Superman'>
@@ -20,7 +22,7 @@ function App() {
       <Greet name='Kevin' heroName= 'Dr. K'>
         <p>This is child props</p>
       </Greet> */}
-      <Message />
+      {/* <Message /> */}
     </div>
   );
 }

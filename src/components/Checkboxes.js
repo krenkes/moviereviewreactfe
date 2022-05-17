@@ -7,6 +7,8 @@ import {
 } from 'reactstrap';
 
 export const Checkbox = (props) => {
+    
+
     return (
         <div className="container">
             <Form>
@@ -17,7 +19,7 @@ export const Checkbox = (props) => {
                                 <div className='col-12 col-md-2'>
                                     <div className='row justify-content-start'>
                                         <FormGroup check>
-                                            <Input type="checkbox" />
+                                            <Input checked={props.checked} type="checkbox" />
                                             <Label className='d-flex justify-content-start' check>
                                                 {props.label[index - 6]}
                                             </Label>
@@ -25,7 +27,7 @@ export const Checkbox = (props) => {
                                     </div>
                                     <div className='row'>
                                         <FormGroup check>
-                                            <Input type="checkbox" />
+                                            <Input checked={props.checked} type="checkbox" />
                                             <Label className='d-flex justify-content-start' check>
                                                 {props.label[index - 5]}
                                             </Label>
@@ -33,7 +35,7 @@ export const Checkbox = (props) => {
                                     </div>
                                     <div className='row'>
                                         <FormGroup check>
-                                            <Input type="checkbox" />
+                                            <Input checked={props.checked} type="checkbox" />
                                             <Label className='d-flex justify-content-start' check>
                                                 {props.label[index - 4]}
                                             </Label>
@@ -41,7 +43,7 @@ export const Checkbox = (props) => {
                                     </div>
                                     <div className='row'>
                                         <FormGroup check>
-                                            <Input type="checkbox" />
+                                            <Input checked={props.checked} type="checkbox" />
                                             <Label className='d-flex justify-content-start' check>
                                                 {props.label[index - 3]}
                                             </Label>
@@ -49,7 +51,7 @@ export const Checkbox = (props) => {
                                     </div>
                                     <div className='row'>
                                         <FormGroup check>
-                                            <Input type="checkbox" />
+                                            <Input checked={props.checked} type="checkbox" />
                                             <Label className='d-flex justify-content-start' check>
                                                 {props.label[index - 2]}
                                             </Label>
@@ -57,7 +59,7 @@ export const Checkbox = (props) => {
                                     </div>
                                     <div className='row'>
                                         <FormGroup check>
-                                            <Input type="checkbox" />
+                                            <Input checked={props.checked} type="checkbox" />
                                             <Label className='d-flex justify-content-start' check>
                                                 {props.label[index - 1]}
                                             </Label>
@@ -74,7 +76,7 @@ export const Checkbox = (props) => {
                                     {num > 5 &&
                                         <div className='row'>
                                             <FormGroup check>
-                                                <Input type="checkbox" />
+                                                <Input checked={props.checked} type="checkbox" />
                                                 <Label className='d-flex justify-content-start' check>
                                                     {props.label[index - 5]}
                                                 </Label>
@@ -84,7 +86,7 @@ export const Checkbox = (props) => {
                                     {num > 4 &&
                                         <div className='row'>
                                             <FormGroup check>
-                                                <Input type="checkbox" />
+                                                <Input checked={props.checked} type="checkbox" />
                                                 <Label className='d-flex justify-content-start' check>
                                                     {props.label[index - 4]}
                                                 </Label>
@@ -94,7 +96,7 @@ export const Checkbox = (props) => {
                                     {num > 3 &&
                                         <div className='row'>
                                             <FormGroup check>
-                                                <Input type="checkbox" />
+                                                <Input checked={props.checked} type="checkbox" />
                                                 <Label className='d-flex justify-content-start' check>
                                                     {props.label[index - 3]}
                                                 </Label>
@@ -104,7 +106,7 @@ export const Checkbox = (props) => {
                                     {num > 2 &&
                                         <div className='row'>
                                             <FormGroup check>
-                                                <Input type="checkbox" />
+                                                <Input checked={props.checked} type="checkbox" />
                                                 <Label className='d-flex justify-content-start' check>
                                                     {props.label[index - 2]}
                                                 </Label>
@@ -114,7 +116,7 @@ export const Checkbox = (props) => {
                                     {num > 1 &&
                                         <div className='row'>
                                             <FormGroup check>
-                                                <Input type="checkbox" />
+                                                <Input checked={props.checked} type="checkbox" />
                                                 <Label className='d-flex justify-content-start' check>
                                                     {props.label[index - 1]}
                                                 </Label>
@@ -123,7 +125,7 @@ export const Checkbox = (props) => {
                                     }
                                     <div className='row'>
                                         <FormGroup check>
-                                            <Input type="checkbox" />
+                                            <Input checked={props.checked} type="checkbox" />
                                             <Label className='d-flex justify-content-start' check>
                                                 {props.label[index]}
                                             </Label>
