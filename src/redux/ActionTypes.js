@@ -1,0 +1,9 @@
+export const MOVIES_LOADING = 'MOVIES_LOADING';
+export const MOVIES_FAILED = 'MOVIES_FAILED';
+export const ADD_MOVIES = 'ADD_MOVIES';
+export const GENERAL_CHECK = 'GENERAL_CHECK'
+export const LIGHT_CHECK = 'LIGHT_CHECK'
+export const HEAVY_CHECK = 'HEAVY_CHECK'
+export const RACIAL_CHECK = 'RACIAL_CHECK'
+export const RELIGIOUS_CHECK = 'RELIGIOUS_CHECK'
+export const SET_MOVIE_FILTER = 'SET_MOVIE_FILTER'
