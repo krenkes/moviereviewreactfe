@@ -34,7 +34,6 @@ export const fetchMovies = () => dispatch => {
         )
         .then(response => response.json())
         .then(movies => dispatch(addMovies(movies)))
-        .then(movies => dispatch(setMovieFilter(movies)))
         .catch(error => dispatch(moviesFailed(error.message)));
 };
 
@@ -58,10 +57,7 @@ export const lightCheck = light => ({
 });
 
 
-export const setMovieFilter = moviesFiltered => {
-    return {
-        type: ActionTypes.SET_MOVIE_FILTER,
-        payload: moviesFiltered
-    };
-};
-
+export const setMovieFilter = moviesFiltered => ({
+    type: ActionTypes.SET_MOVIE_FILTER,
+    payload: moviesFiltered
+});

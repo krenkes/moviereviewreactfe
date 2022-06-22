@@ -8,7 +8,8 @@ export const Movies = (state = {
 }, action) => {
     switch (action.type) {
         case ActionTypes.ADD_MOVIES:
-            return { ...state, isLoading: false, errMess: null, movies: action.payload };
+            return { ...state, isLoading: false, errMess: null, movies: action.payload, moviesFiltered: action.payload };
+            
         case ActionTypes.SET_MOVIE_FILTER:
             return { ...state, isLoading: false, errMess: null, moviesFiltered: action.payload };
 

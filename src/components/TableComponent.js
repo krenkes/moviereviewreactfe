@@ -1,29 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Table
 } from 'reactstrap';
 import { Loading } from './LoadingComponent';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMovies } from '../redux/ActionCreators';
 
-
+// const Row = (props) => {
+//   return (
+//     <div>
+//       {props.moviesFiltered.map(movie => {
+//         return (
+//           <tr>
+//             <td>{movie.title}</td>
+//             <td>{movie.industry_rating}</td>
+//             <td>{movie.home_release_year}</td>
+//             <td>CSM DR PI</td>
+//           </tr>
+//         );
+//       })}
+//     </div>
+//   )
+// }
 
 
 const MovieTable = (props) => {
-  // console.log(props.movies)
-  if (props.moviesLoading) {
+  const [counter, setCounter] = useState(false)
+  const movies = useSelector(state => state.movies)
+  const [pageNumber, setPageNumber] = useState(20)
+
+  const dispatch = useDispatch()
+  const observer = useRef()
+
+  const lastMovieElementRef = useCallback(node => {
+    if (movies.moviesLoading) return
+    if (observer.current) observer.current.disconnect()
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setPageNumber(prevPageNumber => prevPageNumber + 20)
+      }
+    })
+    if (node) observer.current.observe(node)
+  }, [movies.moviesLoading])
+
+  if (counter === false) {
+    dispatch(fetchMovies())
+    setCounter(true)
+  }
+  if (movies.moviesLoading) {
     return <Loading />
   }
-
-  const row = props.movies.map(movie => {
-    return (
-      // <div key={movie.id} className="col-md-5 m-1">
-      <tr>
-        <td>{movie.title}</td>
-        <td>{movie.industry_rating}</td>
-        <td>{movie.home_release_year}</td>
-        <td>CSM DR PI</td>
-      </tr>
-      // </div>
-    );
+  // make it a function 
+  const row = movies.moviesFiltered.slice(0, pageNumber).map((movie, index) => {
+    if (pageNumber === index + 1) {
+      return (
+        <tr ref={lastMovieElementRef} key={movie.title}>
+          <td>{movie.title}</td>
+          <td>{movie.industry_rating}</td>
+          <td>{movie.home_release_year}</td>
+          <td>CSM DR PI</td>
+        </tr>
+      );
+    }
+    else {
+      return (
+        <tr key={movie.title}>
+          <td>{movie.title}</td>
+          <td>{movie.industry_rating}</td>
+          <td>{movie.home_release_year}</td>
+          <td>CSM DR PI</td>
+        </tr>
+      );
+    }
   });
   return (
     <div >

@@ -11,27 +11,27 @@ import { fetchMovies } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
-        movies: state.movies
+        // movies: state.movies
     };
 };
 
 const mapDispatchToProps = {
-    fetchMovies: () => (fetchMovies()),
+    // fetchMovies: () => (fetchMovies()),
 };
 
 class Main extends Component {
 
     componentDidMount() {
-        this.props.fetchMovies();
+        // this.props.fetchMovies();
     }
 
     render() {
         const HomePage = () => {
             return (
                 <Home
-                    movies={this.props.movies.movies}
-                    moviesLoading={this.props.movies.isLoading}
-                    moviesErrMess={this.props.movies.errMess}
+                    // movies={this.props.movies.movies}
+                    // moviesLoading={this.props.movies.isLoading}
+                    // moviesErrMess={this.props.movies.errMess}
                 />
             );
         }

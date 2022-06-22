@@ -1,7 +1,7 @@
 export const MOVIES_LOADING = 'MOVIES_LOADING';
 export const MOVIES_FAILED = 'MOVIES_FAILED';
 export const ADD_MOVIES = 'ADD_MOVIES';
-export const GENERAL_CHECK = 'GENERAL_CHECK'
+export const INDUSTRY_CHECK = 'INDUSTRY_CHECK'
 export const LIGHT_CHECK = 'LIGHT_CHECK'
 export const HEAVY_CHECK = 'HEAVY_CHECK'
 export const RACIAL_CHECK = 'RACIAL_CHECK'

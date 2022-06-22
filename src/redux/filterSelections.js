@@ -1,20 +1,18 @@
 import * as ActionTypes from './ActionTypes';
 
 export const FilterSelections = (state = {
-    general: [],
+    industryCheck: [false, false, false, false],
     lightCheck: [],
-    heavyCheck: [],
+    heavyCheck: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     racialCheck: [],
     religiousCheck: []
 
 }, action) => {
     switch (action.type) {
-        case ActionTypes.GENERAL_CHECK:
-            return { ...state, general: action.payload };
-
+        case ActionTypes.INDUSTRY_CHECK:
+            return { ...state, industryCheck: action.payload };
         case ActionTypes.LIGHT_CHECK:
             return { ...state, lightCheck: action.payload };
-
         case ActionTypes.HEAVY_CHECK:
             return { ...state, heavyCheck: action.payload };
         case ActionTypes.RACIAL_CHECK:

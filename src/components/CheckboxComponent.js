@@ -35,7 +35,8 @@ const CheckboxInput = (props) => {
 
 export const CheckboxList = (props) => {
     const dispatch = useDispatch()
-    // const movies = useSelector(state => state.movies)
+    const movies = useSelector(state => state.movies)
+    const filterSelections = useSelector(state => state.filterSelections)
     const [allChecked, setAllChecked] = useState(Array(props.labels.length).fill(props.checked));
 
     function compare(a, b) {
@@ -54,15 +55,18 @@ export const CheckboxList = (props) => {
         }
 
     }
-    // useEffect(() => {
-    //     let displayedMovies = FilterMovies(movies)
-    //     dispatch({ type: SET_MOVIE_FILTER, payload: displayedMovies })
-    // }, [allChecked]);
+    if (props.filterSelections !== allChecked) {
+        dispatch({ type: props.valueState, payload: allChecked })
+    }
+    useEffect(() => {
+        let displayedMovies = FilterMovies(movies, props.labels, allChecked, props.keyone, filterSelections)
+        dispatch({ type: SET_MOVIE_FILTER, payload: displayedMovies })
+    }, [allChecked]);
     
 
-    useEffect(() => {
-        dispatch({ type: props.valueState, payload: allChecked })
-    }, [props.valueState]);
+    // useEffect(() => {
+    //     dispatch({ type: props.valueState, payload: allChecked })
+    // }, [props.valueState]);
 
     // dispatch({ type: props.valueState, payload: allChecked })
     return (
@@ -70,7 +74,7 @@ export const CheckboxList = (props) => {
             <Form>
                 <div className='row justify-content-start'>
                     {props.showName === true &&
-                        <p className='d-flex justify-content-start'>{props.name}</p>
+                        <p className='d-flex justify-content-start'>{props.key}</p>
                     }
                 </div>
                 {/* <div className='row justify-content-start'>
